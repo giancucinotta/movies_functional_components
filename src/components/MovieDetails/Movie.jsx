@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'; // useEffect reemplaza el componentDidMount/componentWillUnmount/componentDidUpdate
 import { connect } from 'react-redux';
 import { getMovieDetails } from '../../Redux/Actions/index.js';
+
 import './Movie.css';
 
 const Movie = ({match, getMovieDetails, pelicula}) => {
 
-  useEffect(() => { //
+  useEffect(() => {
     getMovieDetails(match.params.id) 
   }, []); // [] -> Se llama 'dependencias' ☻☺☻☺☻☺ ♥☼♫♪♀♂♥
 

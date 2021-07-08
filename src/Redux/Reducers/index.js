@@ -26,7 +26,7 @@ function rootReducer (state = initialState, action) {
         case REMOVE_MOVIE_FAVORITE:
             return {
                 ...state,
-                moviesFavourites: state.moviesFavourites.filter(movie => movie.imdbID !== action.payload)
+                moviesFavourites: state.moviesFavourites.filter(movie => movie.id !== action.payload)
             }
         default: { 
             return state

@@ -3,6 +3,8 @@ import { getMovies, addMovieFavorite } from '../../Redux/Actions/index';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import './Buscador.css';
+
 const Buscador = ({ getMovies, addMovieFavorite, movies }) => {
   // useState setea el estado local del componente
   const [title, setTitle] = useState('');
@@ -18,7 +20,7 @@ const Buscador = ({ getMovies, addMovieFavorite, movies }) => {
   };
 
   return (
-    <div>
+    <div className='buscador'>
       <div>
         <h2>Buscador</h2>
         <form className="form-container" onSubmit={handleSubmit}>
@@ -37,9 +39,10 @@ const Buscador = ({ getMovies, addMovieFavorite, movies }) => {
         <ul>
           {
             movies && movies.map((el, i) => (
-              <div key={el.imdbID}>
+              <div className='container' key={el.imdbID}>
                 <Link to={`/movie/${el.imdbID}`}>{el.Title}</Link>
                 <button onClick={() => addMovieFavorite({ title: el.Title, id: el.imdbID })}>Fav</button> {/* Con este botón se despacha una accion para que agregue a favs. Arrow function porque le quiero pasar parámetros (no ejecutarla, sino definirla) */}
+                <img src={el.Poster}/>
               </div>
             ))
           }
